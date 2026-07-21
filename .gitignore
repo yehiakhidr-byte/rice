@@ -1,0 +1,17 @@
+*.bed
+*.bim
+*.fam
+*.log
+*.nosex
+*.Q
+*.P
+*.eigenvec
+*.eigenval
+*.frq
+*.hwe
+*.dist
+*.dist.id
+*.ld
+*.prune.in
+*.prune.out
+/.git/
