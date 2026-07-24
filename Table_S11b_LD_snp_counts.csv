@@ -1,0 +1,5 @@
+"Scenario","N_SNPs","Total_Pairs"
+"sens_D4_LDnone",26474,2382974
+"sens_D4_LD08",9609,325303
+"sens_D4_LD05",4278,66343
+"sens_D4_LD100",822,2534

@@ -1,0 +1,30 @@
+
+Table 6. Concordance between ADMIXTURE and DAPC cluster assignments.
+(A) K = 2
+
+               DAPC cluster
+ADMIXTURE      Cluster 1    Cluster 2    Total
+-----------------------------------------------
+Cluster 1            6          140       146
+Cluster 2          233            0       233
+-----------------------------------------------
+Total              239          140       379
+
+(B) K = 5
+
+               DAPC cluster
+ADMIXTURE      1     2     3     4     5   Total
+--------------------------------------------------
+Cluster 1      0    87     0     0     0      87
+Cluster 2     14     1     0     0     0      15
+Cluster 3      0     1    50     0     0      51
+Cluster 4      0     0     0   110     1     111
+Cluster 5      0     0     0     0   115     115
+--------------------------------------------------
+Total         14    89    50   110   116     379
+
+Footnotes: Values are counts of individuals assigned to each
+combination of methods. At K = 5, clusters are numbered by
+ADMIXTURE assignment order; corresponding DAPC clusters may
+have different numeric labels.
+

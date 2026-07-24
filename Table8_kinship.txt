@@ -1,0 +1,25 @@
+
+Table 8. Summary statistics of the centered IBS kinship matrix
+for 379 rice accessions (26,474 QC-passing SNPs).
+
+Statistic                              Value
+----------------------------------------------
+Samples                                   379
+SNPs used                              26,474
+Mean                                   -0.0054
+Standard deviation                      0.8087
+Minimum                                -1.0512
+Maximum                                 3.6250
+Median                                  0.0670
+Proportion of pairs < 0                48.17%
+Proportion of pairs > 0.125            48.65%
+  (second-degree relatives)
+Proportion of pairs > 0.25             39.66%
+  (first-degree relatives)
+----------------------------------------------
+Footnotes: Centered IBS kinship calculated
+using PLINK --make-rel with the full set of
+26,474 QC-passing markers. Negative values
+indicate pairs less related than expected
+under random population background.
+

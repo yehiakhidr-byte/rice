@@ -1,0 +1,17 @@
+Scenario,Label,Samples,SNPs
+rice_pruned,S0: No mind (413),413,1166
+rice_pruned2,S1: mind 0.10 after QC (409),409,1161
+rice_pruned3,S3: mind 0.10 before QC (379),379,1187
+sens_D1_S2,S2: mind 0.05 (293),293,1064
+sens_D1_S3,S4: mind 0.02 (98),98,597
+sens_D2_M0,M0: MAF none (1638),383,1638
+sens_D2_M1,M1: MAF 0.01 (1601),383,1601
+sens_D2_M2,M2: MAF 0.03 (1386),383,1386
+sens_D2_M4,M4: MAF 0.10 (844),383,844
+sens_D3_G020,G1: GENO 0.20 (1404),383,1404
+sens_D3_G010,G2: GENO 0.10 (1299),383,1299
+sens_D3_G002,G4: GENO 0.02 (982),383,982
+sens_D4_LDnone,L0: No pruning (26474),383,26474
+sens_D4_LD08,L1: r2<0.8 (9609),383,9609
+sens_D4_LD05,L2: r2<0.5 (4278),383,4278
+sens_D4_LD100,L3: 100/10/0.2 (822),383,822

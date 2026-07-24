@@ -1,0 +1,69 @@
+# Raw data archives (too large, externally available)
+*.tar.gz
+*.zip
+*.csv.gz
+*.gz
+
+# PLINK binary files
+*.bed
+*.bim
+*.fam
+*.ped
+*.map
+
+# ADMIXTURE output (can be regenerated)
+*.P
+*.Q
+*.log
+
+# PLINK intermediate files
+*.nosex
+*.frq
+*.hwe
+*.ld
+*.log
+*.lmiss
+*.imiss
+*.irem
+*.irem2
+
+# R temporary files
+.RData
+.Rhistory
+*.Rout
+
+# PLINK raw files
+*.raw
+
+# Kinship matrices
+*.rel
+*.rel.id
+
+# Temp files
+*.snplist
+
+# Binary office files
+*.docx
+*.pptx
+
+# ADMIXTURE/PLINK log output
+log*.out
+
+# Notes / plan files
+location.md
+plan.md
+r_test*.txt
+
+# Generated figures (PDF)
+*.pdf
+*.png
+*.jpg
+*.tiff
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+Thumbs.db
+.DS_Store

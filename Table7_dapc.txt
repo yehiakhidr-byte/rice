@@ -1,0 +1,27 @@
+
+Table 7. DAPC cluster sizes and eigenvalues.
+(A) Cluster sizes
+
+               Number of
+Cluster        individuals
+--------------------------
+    1              14
+    2              89
+    3              50
+    4             110
+    5             116
+--------------------------
+  Total           379
+
+(B) Discriminant analysis eigenvalues
+
+         Eigen-     Variance
+Axis     value      explained (%)
+----------------------------------
+  1    7,284.61        61.8
+  2    2,478.59        21.0
+  3    1,068.33         9.1
+  4      955.24         8.1
+----------------------------------
+  Total               100.0
+

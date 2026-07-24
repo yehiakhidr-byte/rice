@@ -194,3 +194,73 @@ preserved).
 **Conclusion**: No evidence of systematic sampling bias. All inferences
 (FST, AMOVA, diversity, LD decay) are expected to be representative of the
 original RDP1 panel.
+
+## 9. HDRA 700K Data and Cross-Platform Comparison
+
+### HDRA Data Source
+- **Platform**: HDRA (High-Density Rice Array) — 700K SNPs
+- **Original source file**: `HDRA-G6-4-RDP1-RDP2-NIAS-2.tar.gz` (12484 SNPs × 1568 samples multi-panel dataset)
+- **SNP map file**: `HDRA-G6-4-SNP-MAP.tar.gz`
+- **RDP1 extraction**: 406 RDP1 accessions extracted from the multi-panel PLINK binary via `--keep`, after cross-referencing NSFTV IDs with the RDP1 panel. 7 accessions present in the 44K 413-set but absent in HDRA (confirmed absent from raw HDRA data).
+- **HDRA raw dataset**: 406 accessions × 700K SNPs (before QC)
+- **Working path (WSL)**: `/home/yehia/hdra_rdp1/hdra_rdp1_raw`
+
+### Baseline QC (matching 44K protocol)
+| Step | Parameter | Value |
+|------|-----------|-------|
+| Sample filtering | `--mind` | 0.10 |
+| MAF | `--maf` | 0.05 |
+| SNP missingness | `--geno` | 0.05 |
+| LD pruning | `--indep-pairwise` | 50 5 0.2 |
+| **Baseline result** | 377 samples × 12,975 SNPs | |
+
+### 18 Sensitivity Scenarios
+| Dimension | Scenarios |
+|-----------|-----------|
+| **Sample filtering (S)** | none, mind 0.02, mind 0.05, mind 0.10 (baseline), mind 0.20 |
+| **MAF (M)** | none, 0.01, 0.03, 0.05 (baseline), 0.10 |
+| **GENO (G)** | none, 0.02, 0.05 (baseline), 0.10, 0.20 |
+| **LD pruning (L)** | none, r² 0.2 (baseline), r² 0.5, r² 0.8, r² 1.0 |
+| **Total** | 4 dimensions × 5 levels − 2 skipped degenerate = **18 scenarios** |
+
+### Analysis Per Scenario
+- ADMIXTURE K=1–10 (10 replicates each)
+- PCA (PLINK, 10 components)
+- Frequency and HWE (PLINK)
+- FST (Weir & Cockerham via PLINK `--fst`)
+- Genetic diversity (He, PIC, Shannon index)
+- LD decay (chromosome 1, binned r² by physical distance)
+
+### Cross-Platform Comparison Metrics
+- **Cluster agreement**: Proportion of samples assigned to same ADMIXTURE K=5 cluster across scenarios (baseline → perturbed)
+- **ARI/NMI**: Adjusted Rand Index and Normalized Mutual Information between scenario clusterings
+- **PCA correlation**: Pearson ρ between PC1 scores of scenario vs. baseline
+- **FST range**: Mean FST across K=5 clusters per scenario
+- **LD inflation**: Mean r² at 0–10 kb bin relative to baseline
+- **Diversity correlation**: Spearman ρ of He/PIC values vs. baseline
+
+### Key Findings
+| Metric | 44K (1,187 SNPs) | HDRA (12,975 SNPs) |
+|--------|------------------|-------------------|
+| Baseline N | 379 × 1,187 | 377 × 12,975 |
+| Cluster agreement (max) | 100% | 97.1% |
+| Cluster agreement (min) | 85.5% | 3.4% |
+| ARI range | 0.80–1.00 | 0.29–1.00 |
+| FST range | 0.293–0.609 | 0.076–0.512 |
+| LD inflation (relative) | 1.44× | 1.81× |
+| PC1 correlation (min) | 0.99 | 0.97 |
+
+### Files
+| File | Content |
+|------|---------|
+| `hdra_sensitivity_all.sh` | Full HDRA pipeline (18 scenarios, ADMIXTURE, PCA, freq, HWE) |
+| `hdra_continuation.sh` | Pipeline continuation for scenarios that failed on first pass |
+| `hdra_postprocess.sh` | FST and LD decay post-processing across all scenarios |
+| `hdra_analysis_final.R` | HDRA-only sensitivity analysis (cluster stability, diversity, PCA) |
+| `hdra_vs_44k_final.R` | Cross-platform comparison (44K vs HDRA) |
+| `hdra_fst_summary.csv` | FST per scenario (mean, per-population) |
+| `hdra_vs_44k_comparison.csv` | All comparison metrics across 18 scenarios |
+| `hdra_ari.csv` / `hdra_nmi.csv` | Pairwise cluster agreement matrices |
+| `hdra_cv_errors.csv` | ADMIXTURE CV errors for all K=1–10 |
+| `hdra_diversity.csv` | He, PIC, Shannon per scenario per population |
+| `hdra_pca_cor.csv` | PC1–PC4 correlation between scenarios |

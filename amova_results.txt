@@ -1,0 +1,59 @@
+AMOVA: Hierarchical (Lineage / Subpopulation within Lineage)
+===========================================================
+Data: 1187 SNPs, 379 rice accessions
+Filtered: 297 non-admix samples
+
+
+	Analysis of Molecular Variance
+
+Call: pegas::amova(formula = D_keep_d ~ lineage_keep/subpop_keep, nperm = 999)
+
+                   SSD     MSD  df
+lineage_keep   1247584 1247584   1
+subpop_keep   10570080 3523360   3
+Error        434313768 1487376 292
+Total        446131432 1507201 296
+
+Variance components:
+              sigma2 P.value
+lineage_keep  -20098   0.695
+subpop_keep    39157   0.014
+Error        1487376        
+
+Phi-statistics:
+     lineage_keep.in.GLOBAL (Phi_CT)       subpop_keep.in.GLOBAL (Phi_ST) 
+                         -0.01334159                           0.01265130 
+subpop_keep.in.lineage_keep (Phi_SC) 
+                          0.02565067 
+
+Variance coefficients:
+        a         b         c 
+ 51.99596  69.15690 146.66667 
+
+
+
+AMOVA: ADMIXTURE K=5 Clusters
+==============================
+
+	Analysis of Molecular Variance
+
+Call: pegas::amova(formula = D_keep2_d ~ admix_keep, nperm = 999)
+
+                 SSD        MSD  df
+admix_keep 389045635 97261408.7   4
+Error      182625614   488303.8 374
+Total      571671249  1512357.8 378
+
+Variance components:
+            sigma2 P.value
+admix_keep 1362192       0
+Error       488304        
+
+Phi-statistics:
+admix_keep.in.GLOBAL 
+           0.7361227 
+
+Variance coefficients:
+       a 
+71.04222 
+
